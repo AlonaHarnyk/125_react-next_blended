@@ -25,4 +25,25 @@ interface Container<T> {
   getItem: (index: number) => T;
 }
 
-const numberContainer: Container<number> = {};
+const numberContainer: Container<number> = {
+  items: [1, 2, 3],
+  addItem(item) {
+    this.items.push(item);
+  },
+  getItem(index) {
+    return this.items[index];
+  },
+};
+const stringContainer: Container<string> = {
+  items: ["1"],
+  addItem(item) {
+    this.items.push(item);
+  },
+  getItem(index) {
+    return this.items[index];
+  },
+};
+function getLastElement<T>(array: T[]): T {
+  return array[array.length - 1];
+}
+getLastElement(numberContainer.items);
