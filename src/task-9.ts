@@ -1,5 +1,3 @@
-
-
 //Завдання:
 
 //1. Створіть інтерфейс Container, що містить:
@@ -20,3 +18,11 @@
 //Примітка:
 
 //Контейнер має підтримувати тільки один тип елементів.
+
+interface Container<T> {
+  items: T[];
+  addItem: (item: T) => void;
+  getItem: (index: number) => T;
+}
+
+const numberContainer: Container<number> = {};
