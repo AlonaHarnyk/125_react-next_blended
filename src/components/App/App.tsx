@@ -7,14 +7,15 @@ import { getPhotos } from "../../services/photos";
 import { useState } from "react";
 import type { Photo } from "../../types/photo";
 import Loader from "../Loader/Loader";
+import PhotosGallery from "../PhotosGallery/PhotosGallery";
 
 export default function App() {
-  
+
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const handleSearch = async (value: string) => {
-    try { 
+    try {
       setIsError(false);
       setIsLoading(true);
       const res = await getPhotos(value);
@@ -35,11 +36,12 @@ export default function App() {
           <Form onSubmit={handleSearch} />
           <Toaster />
           {isError && <Text>Something went wrong</Text>}
-          {isLoading && <Loader/>}
+          {isLoading && <Loader />}
+
+          <PhotosGallery photos={photos} />
         </Container>
-        Home page
       </Section>
-      
+
     </>
   );
 }
