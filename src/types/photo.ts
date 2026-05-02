@@ -1,9 +1,9 @@
 export interface Photo {
-    // id,
-    // avg_color,
-    // alt,
-    // src: {
-    //     large,
-    //     original
-    // }
+  id: number;
+  alt: string;
+  avg_color: string;
+  src: {
+    large: string;
+    original: string;
+  };
 }
