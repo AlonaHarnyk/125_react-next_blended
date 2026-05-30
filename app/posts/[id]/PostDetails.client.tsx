@@ -6,16 +6,10 @@
 // import { fetchPostById, fetchUserById } from '@/lib/api';
 
 import css from './PostDetails.module.css';
-import { useEffect } from 'react';
 // import { User } from '@/types/user';
 
 export default function PostDetailsClient() {
   // const handleClickBack = () => {};
-
-  useEffect(() => {
-    const fn = async () => {};
-    fn();
-  }, []);
 
   return (
     <>

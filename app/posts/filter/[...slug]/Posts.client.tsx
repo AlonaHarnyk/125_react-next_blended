@@ -6,7 +6,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import PostList from '@/components/PostList/PostList';
 import SearchBox from '@/components/SearchBox/SearchBox';
 import Pagination from '@/components/Pagination/Pagination';
-import { fetchPosts } from '@/lib/api';
+import { fetchPosts, PostsResponse } from '@/lib/api';
 
 import css from './page.module.css';
 import Modal from '@/components/Modal/Modal';
@@ -15,10 +15,11 @@ import EditPostForm from '@/components/EditPostForm/EditPostForm';
 import CreatePostForm from '@/components/CreatePostForm/CreatePostForm';
 
 interface PostsClientProps {
+  postsData: PostsResponse;
   userId: string;
 }
 
-export default function PostsClient({ userId }: PostsClientProps) {
+export default function PostsClient({ postsData, userId }: PostsClientProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,6 +34,7 @@ export default function PostsClient({ userId }: PostsClientProps) {
         ...(userId !== 'All' && { userId }),
       }),
     placeholderData: keepPreviousData,
+    initialData: postsData
   });
 
   const toggleModal = () => setIsModalOpen((prev) => !prev);
@@ -47,7 +49,12 @@ export default function PostsClient({ userId }: PostsClientProps) {
     setSearchQuery(newQuery);
   }, 300);
 
-  const totalPages = Math.ceil(data.totalCount / 8);
+  let totalPages = 0;
+
+  if (data) {
+    totalPages = Math.ceil(data.totalCount / 8);
+  }
+
   const posts = data?.posts ?? [];
 
   return (
