@@ -7,10 +7,10 @@ import './globals.css';
 
 export default function RootLayout({
   children,
-  // modal,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
-  // modal: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -18,7 +18,7 @@ export default function RootLayout({
         <TanStackProvider>
           <Header />
           {children}
-          {/* {modal} */}
+          {modal}
           <Footer />
         </TanStackProvider>
       </body>

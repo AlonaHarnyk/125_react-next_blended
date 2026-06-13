@@ -30,14 +30,14 @@
   padding: 40px 40px 80px 40px;
 }
 
-.header {
+/* .header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   border-bottom: 1px solid #368a01;
   width: 100%;
   padding-bottom: 4px;
-}
+} */
 
 .header h2 {
   color: #fff;
@@ -48,16 +48,16 @@
   line-height: normal;
 }
 
-.content {
+/* .content {
   color: #fff;
   font-family: 'Open Sans';
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-}
+} */
 
-.post {
+/* .post {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -71,7 +71,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-}
+} */
 
 .date {
   color: #fff;
@@ -84,7 +84,7 @@
   margin-left: auto;
 }
 
-.user {
+/* .user {
   color: #fff;
   font-family: 'Open Sans';
   font-size: 12px;
@@ -99,7 +99,7 @@
   justify-content: center;
   align-items: center;
   margin-left: auto;
-}
+} */
 
 .backBtn {
   width: 106px;

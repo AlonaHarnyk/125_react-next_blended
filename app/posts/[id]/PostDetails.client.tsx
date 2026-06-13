@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { fetchPostById, fetchUserById } from '@/lib/api';
 
 import css from './PostDetails.module.css';
+import PostDetails from '../../../components/PostDetails/PostDetails';
 
 export default function PostDetailsClient() {
   const { id } = useParams<{ id: string }>();
@@ -29,7 +30,7 @@ export default function PostDetailsClient() {
   return (
     <>
       {isLoading && <p>...Loading</p>}
-      {post && (
+      {post && user && (
         <main className={css.main}>
           <div className={css.container}>
             <div className={css.item}>
@@ -37,16 +38,7 @@ export default function PostDetailsClient() {
                 ← Back
               </button>
 
-              <div className={css.post}>
-                <div className={css.wrapper}>
-                  <div className={css.header}>
-                    <h2>{post.title}</h2>
-                  </div>
-
-                  <p className={css.content}>{post.body}</p>
-                </div>
-                {user && <p className={css.user}>Author: {user.name}</p>}
-              </div>
+              <PostDetails post={post} user={user} />
             </div>
           </div>
         </main>
