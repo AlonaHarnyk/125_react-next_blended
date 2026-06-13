@@ -68,4 +68,9 @@ export const fetchUsers = async () => {
   return response.data;
 };
 
-export const fetchUserById = async () => {};
+export const fetchUserById = async (userId: number | undefined) => {
+  if(userId){
+  const response = await axios.get<User>(`/users/${userId}`);
+  return response.data;
+  }
+};
